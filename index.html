@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apollus v0.8 — Security Investigator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="orb">A</span><div><b>APOLLUS</b><small>AI SECURITY INVESTIGATOR</small></div></div>
+  <div id="status" class="status">Checking...</div>
+<div class="platform-note">ChromeOS / Linux mode</div></header>
+
+<main>
+<section class="hero">
+  <div>
+    <p class="eyebrow">APOLLUS · CREATED BY YOUSSEF</p>
+    <h1>Gå närmare på det Apollus hittar.</h1>
+    <p>Välj en säkerhetshändelse och chatta med Apollus om exakt vad som hände, varför det kan vara riskabelt och vad som behöver undersökas.</p>
+  </div>
+  <button class="primary" onclick="newInvestigation()">+ Ny undersökning</button>
+</section>
+
+<div class="layout">
+  <aside class="panel events">
+    <div class="panelhead"><h2>Security events</h2><button onclick="loadEvents()">↻</button></div>
+    <div id="events"></div>
+  </aside>
+
+  <section class="panel investigator">
+    <div class="casehead">
+      <div>
+        <span class="pill" id="riskPill">NO CASE</span>
+        <h2 id="caseTitle">Välj något att undersöka</h2>
+        <p id="caseDetails">Apollus visar händelsens data här.</p>
+      </div>
+      <button onclick="analyzeCase()">Analyze deeply</button>
+    </div>
+
+    <div id="analysis" class="analysis hidden"></div>
+
+    <div class="chat" id="chat">
+      <div class="empty">
+        <div class="big">🔎</div>
+        <h3>Investigate Chat</h3>
+        <p>Fråga till exempel: “Varför är detta misstänkt?” eller “Kan detta vara ett falskt alarm?”</p>
+      </div>
+    </div>
+
+    <form class="composer" onsubmit="sendChat(event)">
+      <textarea id="message" placeholder="Fråga Apollus om det du undersöker..." rows="2"></textarea>
+      <button class="primary">Skicka</button>
+    </form>
+  </section>
+</div>
+</main>
+<script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
